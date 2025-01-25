@@ -254,14 +254,13 @@ EOF
 
     for registry in ${toString (builtins.attrNames extraRegistries)}; do
       cat >> $out/.cargo/config.toml <<EOF
+      ln -s .cargo/config.toml .cargo/config
 
 [source."$registry"]
 registry = "$registry"
 replace-with = "vendored-sources"
 EOF
     done
-
-    ln -s .cargo/config.toml .cargo/config
 
     for crate in ${toString depCrates}; do
       # Link the crate directory, removing the output path hash from the destination.
