@@ -144,6 +144,8 @@ stdenv.mkDerivation (
       # always install it rather than trying to write a standard default template.
       install -D $CARGO_CONFIG $name/.cargo/config
 
+      cp $name/.cargo/config $name/.cargo/config.toml
+
       runHook postBuild
     '';
 
