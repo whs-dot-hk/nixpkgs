@@ -258,8 +258,9 @@ EOF
 registry = "$registry"
 replace-with = "vendored-sources"
 EOF
-      ln -s $out/.cargo/config.toml $out/.cargo/config
     done
+
+    ln -s $out/.cargo/config.toml $out/.cargo/config
 
     for crate in ${toString depCrates}; do
       # Link the crate directory, removing the output path hash from the destination.
@@ -270,7 +271,7 @@ EOF
         if [[ -z ''${keysSeen[$key]} ]]; then
           keysSeen[$key]=1
           cat "$crate/.cargo-config" >> $out/.cargo/config.toml
-          #ln -s $out/.cargo/config.toml $out/.cargo/config
+          ln -s $out/.cargo/config.toml $out/.cargo/config
         fi
       fi
     done
