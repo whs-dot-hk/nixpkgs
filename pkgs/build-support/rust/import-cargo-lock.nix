@@ -261,6 +261,8 @@ replace-with = "vendored-sources"
 EOF
     done
 
+    ln -s .cargo/config.toml .cargo/config
+
     for crate in ${toString depCrates}; do
       # Link the crate directory, removing the output path hash from the destination.
       ln -s "$crate" $out/$(basename "$crate" | cut -c 34-)
