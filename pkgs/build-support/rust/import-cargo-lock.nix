@@ -258,7 +258,7 @@ EOF
 registry = "$registry"
 replace-with = "vendored-sources"
 EOF
-      ln -s $out/.cargo/config.toml .cargo/config
+      ln -s $out/.cargo/config.toml $out/.cargo/config
     done
 
     for crate in ${toString depCrates}; do
@@ -270,7 +270,7 @@ EOF
         if [[ -z ''${keysSeen[$key]} ]]; then
           keysSeen[$key]=1
           cat "$crate/.cargo-config" >> $out/.cargo/config.toml
-          ln -s $out/.cargo/config.toml .cargo/config
+          ln -s $out/.cargo/config.toml $out/.cargo/config
         fi
       fi
     done
