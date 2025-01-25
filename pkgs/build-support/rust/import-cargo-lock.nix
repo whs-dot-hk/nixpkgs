@@ -274,7 +274,7 @@ EOF
       fi
     done
 
-    #ln -s $out/.cargo/config.toml $out/.cargo/config
+    cp $out/.cargo/config.toml $out/.cargo/config
   '';
 in
   vendorDir
