@@ -38,7 +38,7 @@ cargoBuildHook() {
     concatTo flagsArray cargoBuildFlags
 
     echoCmd 'cargoBuildHook flags' "${flagsArray[@]}"
-    ls -al
+    pwd
     @setEnv@ cargo build "${flagsArray[@]}"
 
     if [ -n "${buildAndTestSubdir-}" ]; then
