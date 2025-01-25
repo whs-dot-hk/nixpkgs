@@ -36,6 +36,7 @@ cargoSetupPostUnpackHook() {
     @cargoConfig@
 EOF
 
+    cat .cargo/config.toml
     cp .cargo/config.toml .cargo/config
 
     echo "Finished cargoSetupPostUnpackHook"
