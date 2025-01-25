@@ -254,12 +254,11 @@ EOF
 
     for registry in ${toString (builtins.attrNames extraRegistries)}; do
       cat >> $out/.cargo/config.toml <<EOF
-      ln -s .cargo/config.toml .cargo/config
-
 [source."$registry"]
 registry = "$registry"
 replace-with = "vendored-sources"
 EOF
+      ln -s .cargo/config.toml .cargo/config
     done
 
     for crate in ${toString depCrates}; do
