@@ -270,7 +270,7 @@ EOF
         if [[ -z ''${keysSeen[$key]} ]]; then
           keysSeen[$key]=1
           cat "$crate/.cargo-config" >> $out/.cargo/config.toml
-          ln -s $out/.cargo/config.toml $out/.cargo/config
+          #ln -s $out/.cargo/config.toml $out/.cargo/config
         fi
       fi
     done
